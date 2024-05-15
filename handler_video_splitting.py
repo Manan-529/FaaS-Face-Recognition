@@ -2,14 +2,15 @@ import os
 import boto3,json
 import subprocess
 
-access_key="AKIA5FTZEZJVOEPYW3XG"
-secret_key="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"
+access_key="aws-access-key"
+secret_key="aws-secret-key"
+region_name = "aws-region-name"
 
-s3 = boto3.client('s3', region_name = 'us-east-1',  aws_access_key_id = access_key, aws_secret_access_key=secret_key )
-lambdac = boto3.client('lambda', region_name = 'us-east-1',  aws_access_key_id = access_key, aws_secret_access_key=secret_key)
+s3 = boto3.client('s3', region_name = region_name,  aws_access_key_id = access_key, aws_secret_access_key=secret_key )
+lambdac = boto3.client('lambda', region_name = region_name,  aws_access_key_id = access_key, aws_secret_access_key=secret_key)
 
-input_bucket= "1228984473-input"
-output_bucket= "1228984473-stage-1"
+input_bucket= "input-bucket-name"
+output_bucket= "stage-1-bucket-name"
 
 
 def lambda_handler(event, context):
@@ -44,6 +45,7 @@ def lambda_handler(event, context):
         print('Success invoking...')
     except subprocess.CalledProcessError as e:
         print('Error involing lambda',e.output)
+        return { 'statusCode': 400, 'body': json.dumps(e) }
 
     return {
         'statusCode': 200,
