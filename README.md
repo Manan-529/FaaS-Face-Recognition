@@ -53,5 +53,5 @@ To deploy FaaS Face Recognition, follow these steps:
 
 For any inquiries or feedback, please contact the project maintainer:
 
-- **Name:** Jaynil Vaidya
-- **Email:** [vaidyajaynil@gmail.com](mailto:vaidyajaynil@gmail.com)
+- **Name:** Manan Davawala
+- **Email:** [davawalamanan@gmail.com](mailto:davawalamanan@gmail.com)
